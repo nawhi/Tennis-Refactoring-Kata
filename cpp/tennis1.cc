@@ -1,4 +1,12 @@
 #include <string>
+#include <map>
+
+std::map<int, std::string> SCORES = {
+    {0, "Love"},
+    {1, "Fifteen"},
+    {2, "Thirty"},
+    {3, "Forty"}
+};
 
 const std::string tennis_score(int p1Score, int p2Score) {
     std::string score = "";
