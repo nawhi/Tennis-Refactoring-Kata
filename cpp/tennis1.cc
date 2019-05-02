@@ -12,7 +12,7 @@ const std::string tennis_score(int p1Score, int p2Score) {
     std::string score = "";
     if (p1Score == p2Score)
     {
-        score = (p2Score < 3) 
+        return (p2Score < 3) 
             ? SCORES.at(p2Score) + "-All"
             : "Deuce";
     }
@@ -26,7 +26,7 @@ const std::string tennis_score(int p1Score, int p2Score) {
     }
     else
     {
-        score = SCORES.at(p1Score) + "-" + SCORES.at(p2Score);
+        return SCORES.at(p1Score) + "-" + SCORES.at(p2Score);
     }
     return score;
 }
