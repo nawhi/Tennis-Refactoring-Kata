@@ -13,22 +13,9 @@ const std::string tennis_score(int p1Score, int p2Score) {
     int tempScore=0;
     if (p1Score==p2Score)
     {
-        switch (p1Score)
-        {
-            case 0:
-                    score = "Love-All";
-                break;
-            case 1:
-                    score = "Fifteen-All";
-                break;
-            case 2:
-                    score = "Thirty-All";
-                break;
-            default:
-                    score = "Deuce";
-                break;
-            
-        }
+        score = (p2Score < 3) 
+            ? SCORES.at(p2Score) + "-All"
+            : "Deuce";
     }
     else if (p1Score>=4 || p2Score>=4)
     {
