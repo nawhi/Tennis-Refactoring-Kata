@@ -10,7 +10,6 @@ std::map<int, std::string> SCORES = {
 
 const std::string tennis_score(int p1Score, int p2Score) {
     std::string score = "";
-    int tempScore=0;
     if (p1Score==p2Score)
     {
         score = (p2Score < 3) 
@@ -29,6 +28,7 @@ const std::string tennis_score(int p1Score, int p2Score) {
     {
         for (int i=1; i<3; i++)
         {
+            int tempScore = 0;
             if (i==1)
             {
                 tempScore = p1Score;
