@@ -18,28 +18,23 @@ const std::string tennis_score(int p1Score, int p2Score) {
     }
     else if (p1Score >= 4 || p2Score >= 4)
     {
-        int minusResult = p1Score - p2Score;
-        if (minusResult == 1) score = "Advantage player1";
-        else if (minusResult == -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
+        int difference = p1Score - p2Score;
+        if (difference == 1) score = "Advantage player1";
+        else if (difference == -1) score = "Advantage player2";
+        else if (difference >= 2) score = "Win for player1";
         else score = "Win for player2";
     }
     else
     {
-        for (int i=1; i<3; i++)
-        {
-            int tempScore = 0;
-            if (i==1)
-            {
-                tempScore = p1Score;
-            }
-            else
-            {
-                score += "-"; 
-                tempScore = p2Score;
-            }
-            score += SCORES.at(tempScore);
-        }
+        int tempScore = 0;
+        
+        tempScore = p1Score;
+        score += SCORES.at(tempScore);
+
+        tempScore = 0;
+        score += "-";
+        tempScore = p2Score;
+        score += SCORES.at(tempScore);
     }
     return score;
 }
