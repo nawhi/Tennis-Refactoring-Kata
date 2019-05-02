@@ -8,6 +8,10 @@ std::map<int, std::string> SCORES = {
     {3, "Forty"}
 };
 
+std::string getWinningPlayer(int scoreDifference) {
+    return (scoreDifference > 0) ? "player1" : "player2";
+}
+
 const std::string tennis_score(int p1Score, int p2Score) {
     if (p1Score == p2Score)
     {
@@ -18,13 +22,11 @@ const std::string tennis_score(int p1Score, int p2Score) {
     
     if (p1Score >= 4 || p2Score >= 4)
     {
-        std::string score;
         int difference = p1Score - p2Score;
-        if (difference == 1) score = "Advantage player1";
-        else if (difference == -1) score = "Advantage player2";
-        else if (difference >= 2) score = "Win for player1";
-        else score = "Win for player2";
-        return score;
+        std::string winningPlayer = getWinningPlayer(difference);
+        return (abs(difference) == 1) 
+            ? "Advantage " + winningPlayer
+            : "Win for " + winningPlayer;
     }
 
     return SCORES.at(p1Score) + "-" + SCORES.at(p2Score);
