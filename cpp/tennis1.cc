@@ -29,11 +29,17 @@ const std::string tennis_score(int p1Score, int p2Score) {
     {
         for (int i=1; i<3; i++)
         {
-            if (i==1) tempScore = p1Score;
-            else { score+="-"; tempScore = p2Score;}
+            if (i==1)
+            {
+                tempScore = p1Score;
+            }
+            else
+            {
+                score += "-"; 
+                tempScore = p2Score;
+            }
             score += SCORES.at(tempScore);
         }
     }
     return score;
-    
 }
