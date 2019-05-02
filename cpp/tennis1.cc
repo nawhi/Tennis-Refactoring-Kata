@@ -9,24 +9,23 @@ std::map<int, std::string> SCORES = {
 };
 
 const std::string tennis_score(int p1Score, int p2Score) {
-    std::string score = "";
     if (p1Score == p2Score)
     {
         return (p2Score < 3) 
             ? SCORES.at(p2Score) + "-All"
             : "Deuce";
     }
-    else if (p1Score >= 4 || p2Score >= 4)
+    
+    if (p1Score >= 4 || p2Score >= 4)
     {
+        std::string score;
         int difference = p1Score - p2Score;
         if (difference == 1) score = "Advantage player1";
         else if (difference == -1) score = "Advantage player2";
         else if (difference >= 2) score = "Win for player1";
         else score = "Win for player2";
+        return score;
     }
-    else
-    {
-        return SCORES.at(p1Score) + "-" + SCORES.at(p2Score);
-    }
-    return score;
+
+    return SCORES.at(p1Score) + "-" + SCORES.at(p2Score);
 }
