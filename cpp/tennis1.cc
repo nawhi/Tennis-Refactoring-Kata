@@ -44,21 +44,7 @@ const std::string tennis_score(int p1Score, int p2Score) {
         {
             if (i==1) tempScore = p1Score;
             else { score+="-"; tempScore = p2Score;}
-            switch(tempScore)
-            {
-                case 0:
-                    score+="Love";
-                    break;
-                case 1:
-                    score+="Fifteen";
-                    break;
-                case 2:
-                    score+="Thirty";
-                    break;
-                case 3:
-                    score+="Forty";
-                    break;
-            }
+            score += SCORES.at(tempScore);
         }
     }
     return score;
