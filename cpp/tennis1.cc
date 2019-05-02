@@ -10,19 +10,19 @@ std::map<int, std::string> SCORES = {
 
 const std::string tennis_score(int p1Score, int p2Score) {
     std::string score = "";
-    if (p1Score==p2Score)
+    if (p1Score == p2Score)
     {
         score = (p2Score < 3) 
             ? SCORES.at(p2Score) + "-All"
             : "Deuce";
     }
-    else if (p1Score>=4 || p2Score>=4)
+    else if (p1Score >= 4 || p2Score >= 4)
     {
-        int minusResult = p1Score-p2Score;
-        if (minusResult==1) score ="Advantage player1";
-        else if (minusResult ==-1) score ="Advantage player2";
-        else if (minusResult>=2) score = "Win for player1";
-        else score ="Win for player2";
+        int minusResult = p1Score - p2Score;
+        if (minusResult == 1) score = "Advantage player1";
+        else if (minusResult == -1) score = "Advantage player2";
+        else if (minusResult >= 2) score = "Win for player1";
+        else score = "Win for player2";
     }
     else
     {
